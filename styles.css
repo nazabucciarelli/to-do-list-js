@@ -1,0 +1,19 @@
+#tasks-container{
+    padding: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.task{
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border-radius: 1em;
+    margin:0.5em;
+    width: 150px;
+    height: 100px;
+}
