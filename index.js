@@ -12,12 +12,15 @@ class Task {
     }
 }
 
-let tasks = [new Task(1, "Go walk the dog", false, true), new Task(2, "Get the car washed", true, false), new Task(3, "Do homework", false, false)];
+let tasks = [new Task(1, "Go walk the dog", false, true), new Task(2, "Get the car washed", true, false),
+    new Task(3, "Do homework", false, false), new Task(4, "Read the book", false, false),
+    new Task(5, "Clean the house", false, false), new Task(6, "Go to the mall", false, false),
+     new Task(7, "Study for programming", false, false)];
 let select = document.getElementById("taskTypeSelect");
 
 const addTask = () => {
     let inputElement = document.getElementById("description-input");
-    tasks.push(new Task(tasks[tasks.length -1].id +1, inputElement.value, false, false));
+    tasks.push(new Task(tasks[tasks.length - 1].id + 1, inputElement.value, false, false));
     inputElement.value = ""
     listTasks();
 }
@@ -42,7 +45,7 @@ const listTasks = () => {
     }
     let completedTasks = select.value;
     let addTaskContainer = document.getElementById("add-task-container");
-    completedTasks === "true" ? addTaskContainer.classList.add("hidden"): addTaskContainer.classList.remove("hidden");
+    completedTasks === "true" ? addTaskContainer.classList.add("hidden") : addTaskContainer.classList.remove("hidden");
     const filteredTasks = tasks.filter((task) => completedTasks === "false" ? task.completed === false : task.completed === true)
 
     for (let i = 0; i < filteredTasks.length; i++) {
@@ -71,12 +74,12 @@ const listTasks = () => {
         const doneButton = document.createElement("button");
         const doneButtonText = document.createTextNode("Done");
         doneButton.appendChild(doneButtonText);
-        doneButton.addEventListener("click",() => completeTask(task.id))
+        doneButton.addEventListener("click", () => completeTask(task.id))
 
         taskDiv.appendChild(taskDescription);
         taskDiv.appendChild(taskCompleted);
         buttonContainer.appendChild(deleteButton);
-        completedTasks === "true" ? taskCompleted.classList.add("green") :buttonContainer.appendChild(doneButton);
+        completedTasks === "true" ? taskCompleted.classList.add("green") : buttonContainer.appendChild(doneButton);
         taskDiv.appendChild(buttonContainer);
 
         tasksContainer.appendChild(taskDiv);
@@ -87,5 +90,5 @@ select.addEventListener("change", () => {
     listTasks();
 })
 
-document.getElementById("add-task-button").addEventListener("click", () => {addTask()})
+document.getElementById("add-task-button").addEventListener("click", () => { addTask() })
 listTasks();
