@@ -7,10 +7,18 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <select name="Type" id="type-select">
-        <option value="">Completed</option>
-        <option value="">Pending</option>
-    </select>
+    <div class="container">
+        <div>
+            <select id="taskTypeSelect"  name="Type" id="type-select">
+                <option value="false" selected>Pending</option>
+                <option value="true">Completed</option>
+            </select>
+            <div id="add-task-container">
+                <input id="description-input" type="text" placeholder="Insert task's description">
+                <button id="add-task-button">Add task</button>
+            </div>
+        </div>
+    </div>
     <section id="tasks-container">
     </section>
     <script src="index.js"></script>
